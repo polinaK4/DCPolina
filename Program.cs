@@ -1,7 +1,3 @@
-﻿Console.Write("Hi! Please write today's date. DD: ");
+﻿Console.Write("Hi! What’s day today? ");
 var day = Console.ReadLine();
-Console.Write("MM: ");
-var month = Console.ReadLine();
-Console.Write("YYYY: ");
-var year = Console.ReadLine();
-Console.WriteLine($"Thanks! {day} {month} {year} will be great day!");
+Console.WriteLine($"{day} is a nice day!");
