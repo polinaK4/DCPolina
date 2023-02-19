@@ -1,3 +1,3 @@
-﻿Console.Write("Hi! What’s day today? ");
-var day = Console.ReadLine();
-Console.WriteLine($"{day} is a nice day!");
+﻿Console.Write("Which company do you want to work for? - ");
+var company = Console.ReadLine();
+Console.WriteLine($"{company}? good choise");
