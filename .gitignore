@@ -139,3 +139,5 @@ _NCrunch*
 !2.txt
 !5.txt
 SomeIgnoredFiles3/*.jpg
+
+/.vs
