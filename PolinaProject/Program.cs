@@ -83,7 +83,7 @@ else
 
 Console.Write("Task 8. Write any number: ");
 double variableA = double.Parse(Console.ReadLine());
-if ((variableA < 50 && variableA != 37 && variableA > 32 && variableA != 32) || variableA == 0 || variableA == 15)
+if ((variableA < 50 && variableA != 37 && !(variableA <= 32) || variableA == 0 || variableA == 15)
 {
     Console.WriteLine($"Working");
 }
