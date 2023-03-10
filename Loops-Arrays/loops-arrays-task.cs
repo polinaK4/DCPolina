@@ -90,20 +90,24 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
     int[] numbersArray = { 3, 5, 1, 8, 15 };
     int min = numbersArray[0];
     int max = numbersArray[0];
+    int maxInd = 0;
+    int minInd = 0;
     for (int i = 0; i < numbersArray.Length; i++)
     {
         if (numbersArray[i] > max)
         {
             max = numbersArray[i];
+            maxInd = i;
         }
 
         if (numbersArray[i] < min)
         {
             min = numbersArray[i];
+            minInd = i;
         }
 
     }
-    Console.WriteLine($"Task 7.Max number is {max} and Min number is {min}");
+    Console.WriteLine($"Task 7.Minimum index is {minInd} and maximum is {maxInd}. The sum is {maxInd + minInd}");
 }
 //Task 8
 //Create an array of numbers and sort its elements in ascending order (without using function Sort).
