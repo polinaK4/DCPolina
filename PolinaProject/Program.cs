@@ -17,8 +17,9 @@ Console.WriteLine($"Task 1. Variable + 5 = {num += 5}");
 Console.Write("Task 2. Write four-digit number of days to convert them to years and month: ");
 ushort daysNumber = ushort.Parse(Console.ReadLine());
 ushort years = (ushort)(daysNumber / 365);
-ushort months = (ushort)(daysNumber / 30);
-Console.WriteLine($"{daysNumber} days are equal to {years} years or {months} month");
+ushort months = (ushort)((daysNumber % 365) / 30);
+ushort days = (ushort)((daysNumber % 365) % 30);
+Console.WriteLine($"{daysNumber} days are equal to {years} year(s), {months} month(s) and {days} day(s)");
 
 
 //3. Create a program that will take a number (n) entered by the user and return the result as (n + n * 2)
@@ -82,7 +83,7 @@ else
 
 Console.Write("Task 8. Write any number: ");
 double variableA = double.Parse(Console.ReadLine());
-if ((variableA < 50 && variableA != 37 && variableA > 32) || variableA == 0 || variableA == 15)
+if ((variableA < 50 && variableA != 37 && !(variableA <= 32) || variableA == 0 || variableA == 15)
 {
     Console.WriteLine($"Working");
 }
