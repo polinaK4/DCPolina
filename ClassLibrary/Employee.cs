@@ -1,41 +1,41 @@
-﻿using System.Xml.Linq;
-
-namespace ClassLibrary
+﻿namespace ClassLibrary
 {
-   
     public class Employee
     {
-        public string firstName = "Undefined";
-        public string lastName = "Undefined";
-        public int age;
-        public int experienceYears;
-        public string position = "Intern";
-               
-        public Employee()  // 1 конструктор
+        private string firstName;
+        private string lastName;
+        private int age;
+        private int experienceYears;
+        private string position = "Intern";
+
+        public string getPosition
+        {
+            get { return position; }
+            set { position = value; }
+        }
+        public Employee()
         {
             firstName = "New";
-            lastName = "Employee"; 
-
+            lastName = "Employee";
         }
-        public Employee(string firstName, string lastName, int age) // 2 конструктор
-        { 
-            this.firstName = firstName; 
+        public Employee(string firstName, string lastName, int age)
+        {
+            this.firstName = firstName;
             this.lastName = lastName;
             this.age = age;
-
-        } 
-        public Employee(string firstName, string lastName, int age, int experienceYears, string position) // 3 конструктор
-        { 
-            this.firstName = firstName; 
-            this.lastName = lastName; 
-            this.age = age; 
-            this.experienceYears = experienceYears; 
-            this.position = position; 
-        } 
-
-        public void Print()
+        }
+        public Employee(string firstName, string lastName, int age, int experienceYears, string position)
         {
-            Console.WriteLine($"First Name: {firstName} | Last Name: {lastName} | Age: {age} | Experience Years: {experienceYears} | Position: {position}");
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.experienceYears = experienceYears;
+            this.position = position;
+        }
+
+        public override string ToString()
+        {
+            return $"{firstName} {lastName} | Age: {age} | Experience Years: {experienceYears} | Position: {position}";
         }
 
         public void VacationDays()
@@ -46,9 +46,8 @@ namespace ClassLibrary
             }
             else
                 Console.WriteLine($"20 vacation days. Years left before adding extra days: {10 - experienceYears}");
-
         }
 
     }
-    
+
 }

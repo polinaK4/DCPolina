@@ -1,96 +1,101 @@
-﻿using System;
-using ClassLibrary;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using ClassLibrary;
 
 class Program
-{    static void Main(string[] args)
+{
+    static void Main(string[] args)
     {
         Factory iTechArt = new Factory
-        {
-            factoryName = "iTechArt",
-            city = "Krakow",
-            employees = new Employee[]
+        (
+            "iTechArt",
+            "Krakow",
+            1,
+            new Employee[]
             {
-                new Employee { firstName = "John", lastName = "Doe", age = 23 },
-                new Employee { firstName = "Helena", lastName = "Bug", age = 20 },
-                new Employee { firstName = "Harry", lastName = "Potter", age = 19 },
-                new Employee { firstName = "Hanna", lastName = "Smith", age = 27, experienceYears = 5, position = "middle" },
-                new Employee { firstName = "Clark", lastName = "Kent", age = 30, experienceYears = 10, position = "senior" },
-                new Employee { firstName = "Elon", lastName = "Musk", age = 22, experienceYears = 1, position = "junior" },
-                new Employee { firstName = "Barak", lastName = "Obama", age = 35, experienceYears = 15, position = "senior" },
-            } 
-        };
+                new Employee ("John", "Doe", 23),
+                new Employee ("Helena", "Bug", 20),
+                new Employee ("Harry", "Potter", 19),
+                new Employee ("Hanna", "Smith", 27, 5, "Middle"),
+                new Employee ("Clark", "Kent", 30, 10, "Senior" ),
+                new Employee ("Elon", "Musk", 22, 1, "Junior"),
+                new Employee ( "Barak", "Obama", 35, 15, "Senior"),
+            }
+        );
 
         Factory Tesla = new Factory
-        {
-            factoryName = "Tesla",
-            city = "Warsaw",
-            officeNumber = 3,
-            employees = new Employee[]
+        (
+            "Tesla",
+            "Warsaw",
+            3,
+            new Employee[]
             {
-                new Employee { firstName = "Donald", lastName = "Tusk", age = 20 },
-                new Employee { firstName = "Kate", lastName = "Smith", age = 18 },
-                new Employee { firstName = "July", lastName = "Trump", age = 2, experienceYears = 5, position = "middle" },
-                new Employee { firstName = "James", lastName = "Jobs", age = 30, experienceYears = 4, position = "middle" },
-                new Employee { firstName = "Alex", lastName = "Taylor", age = 21, experienceYears = 1, position = "junior" },
+                new Employee ("Donald", "Tusk", 20),
+                new Employee ("Kate", "Smith", 18),
+                new Employee ("July", "Trump", 2, 5, "Middle"),
+                new Employee ("James", "Jobs", 30, 4, "Middle"),
+                new Employee ("Alex", "Taylor", 21, 1, "Junior"),
             }
-        };
-               
-        iTechArt.ReturnNumberEmployees();
-        iTechArt.AddEmployee();
+        );
+
+        Factory Microsoft = new Factory
+        (
+            "Microsoft",
+            "Gdansk"
+        );
+
+        Console.WriteLine($"The number of employees: {iTechArt.ReturnNumberEmployees()}");
+        iTechArt.AddEmployee(new Employee("Drako", "Malfoy", 19));
         iTechArt.ListEmployees();
         iTechArt.ListEmployeesByPosition();
     }
 }
 public class Factory
+{
+    private string factoryName;
+    private string city;
+    private int officeNumber = 1;
+    private Employee[] employees;
+
+    public Factory(string factoryName, string city) //конструктор1
     {
-        public string factoryName = "Undefined";
-        public string city = "Undefined";
-        public int officeNumber = 1;
-        public Employee[] employees;
-                 
-        public Factory() //конструктор1
-        {
-            factoryName = "New Company";                       
-        }
-        public Factory(string factoryName, string city, int officeNumber) //конструктор2
+        this.factoryName = factoryName;
+        this.city = city;
+    }
+    public Factory(string factoryName, string city, int officeNumber, Employee[] employees) //конструктор2
     {
         this.factoryName = factoryName;
         this.city = city;
         this.officeNumber = officeNumber;
+        this.employees = employees;
     }
-    public void ReturnNumberEmployees()
+    public int ReturnNumberEmployees()
     {
-        Console.WriteLine($"The number of employees in {factoryName}: {employees.Length}");
+        return employees.Length;
     }
-        public void AddEmployee()
+    public void AddEmployee(Employee newEmployee)
     {
         Array.Resize(ref employees, employees.Length + 1);
-        employees[employees.Length - 1] = new Employee { firstName = "Drako", lastName = "Malfoy", age = 19 };
-        Console.WriteLine($"New employee added to {factoryName}: {employees[employees.Length - 1].firstName} {employees[employees.Length - 1].lastName} age: {employees[employees.Length - 1].age} experience years: {employees[employees.Length - 1].experienceYears} position: {employees[employees.Length - 1].position}");
-
+        employees[employees.Length - 1] = newEmployee;
+        Console.WriteLine($"New employee added: {newEmployee}");
     }
     public void ListEmployees()
     {
         Console.WriteLine($"List of employees in {factoryName}:");
         for (int i = 0; i < employees.Length; i++)
         {
-            Console.WriteLine($"{employees[i].firstName} {employees[i].lastName}");
+            Console.WriteLine($"{employees[i]}");
         }
     }
     public void ListEmployeesByPosition()
     {
-        Console.WriteLine($"Type position to get the list of employees (intern, junior, middle, senior):");
+        Console.WriteLine($"Type position to get the list of employees (Intern, Junior, Middle, Senior):");
         string typePosition = Console.ReadLine();
         Console.WriteLine($"List of employees in {factoryName} on position '{typePosition}':");
         for (int i = 0; i < employees.Length; i++)
         {
-            if (employees[i].position == typePosition)
+            if (employees[i].getPosition == typePosition)
             {
-                Console.WriteLine($"{employees[i].firstName} {employees[i].lastName}");
-            }            
+                Console.WriteLine($"{employees[i]}");
+            }
         }
     }
-
-
 }
