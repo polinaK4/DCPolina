@@ -2,52 +2,68 @@
 {
     public class Employee
     {
-        private string firstName;
-        private string lastName;
-        private int age;
-        private int experienceYears;
-        private string position = "Intern";
+        private string _firstName;
+        private string _lastName;
+        private double _age;
+        private double _experienceYears;
+        private string _position = "Intern";
 
-        public string getPosition
+        public string position
         {
-            get { return position; }
-            set { position = value; }
+            get { return _position; }
+            set { _position = value; }
         }
+
         public Employee()
         {
-            firstName = "New";
-            lastName = "Employee";
+            _firstName = "New";
+            _lastName = "Employee";
         }
+
         public Employee(string firstName, string lastName, int age)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.age = age;
+            this._firstName = firstName;
+            this._lastName = lastName;
+            this._age = age;
         }
+
         public Employee(string firstName, string lastName, int age, int experienceYears, string position)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.age = age;
-            this.experienceYears = experienceYears;
-            this.position = position;
+            this._firstName = firstName;
+            this._lastName = lastName;
+            this._age = age;
+            this._experienceYears = experienceYears;
+            this._position = position;
         }
 
         public override string ToString()
         {
-            return $"{firstName} {lastName} | Age: {age} | Experience Years: {experienceYears} | Position: {position}";
+            return $"{_firstName} {_lastName} | Age: {_age} | Experience Years: {_experienceYears} | Position: {_position}";
         }
 
         public void VacationDays()
         {
-            if (experienceYears >= 10)
+            if (_experienceYears >= 10)
             {
                 Console.WriteLine("26 vacation days");
             }
             else
-                Console.WriteLine($"20 vacation days. Years left before adding extra days: {10 - experienceYears}");
+            {
+                Console.WriteLine($"20 vacation days. Years left before adding extra days: {10 - _experienceYears}");
+            }
         }
 
+        public void WorkCoefficient()
+        {
+            if (_experienceYears == 0)
+            {
+                Console.WriteLine("Work Coefficient: Not applicable");
+            }
+            else
+            {
+                double workCoeff = _age / _experienceYears;
+                Console.WriteLine($"Work Coefficient: {workCoeff}");
+            }
+        }
     }
-
 }
