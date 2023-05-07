@@ -2,17 +2,16 @@
 {
     public class Employee
     {
-        private string _firstName;
-        private string _lastName;
+        private const string City = "Minsk";
+        private readonly string _firstName;
+        private readonly string _lastName;        
         private double _age;
         private double _experienceYears;
-        private string _position = "Intern";
+        public static int retirementAge = 65;
 
-        public string position
-        {
-            get { return _position; }
-            set { _position = value; }
-        }
+        public string Position { get; private set; } = "Intern";
+
+        public double WorkCoefficient2 => _age / _experienceYears;
 
         public Employee()
         {
@@ -24,7 +23,7 @@
         {
             this._firstName = firstName;
             this._lastName = lastName;
-            this._age = age;
+            this._age = age++;
         }
 
         public Employee(string firstName, string lastName, int age, int experienceYears, string position)
@@ -33,12 +32,12 @@
             this._lastName = lastName;
             this._age = age;
             this._experienceYears = experienceYears;
-            this._position = position;
+            this.Position = position;
         }
 
         public override string ToString()
         {
-            return $"{_firstName} {_lastName} | Age: {_age} | Experience Years: {_experienceYears} | Position: {_position}";
+            return $"{_firstName} {_lastName} | Age: {_age} | Experience Years: {_experienceYears} | Position: {Position}";
         }
 
         public void VacationDays()
@@ -53,6 +52,11 @@
             }
         }
 
+        public void ShowEmployeeInfo()
+        {
+            Console.WriteLine("I am Employee!");
+        }
+        
         public void WorkCoefficient()
         {
             if (_experienceYears == 0)

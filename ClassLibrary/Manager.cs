@@ -18,6 +18,15 @@
             Console.WriteLine($"New employee added: {newEmployee}");
         }
 
+        public void ListManagerEmployees()
+        {
+            Console.WriteLine($"List of employees in:");
+            for (int i = 0; i < _employees.Count; i++)
+            {
+                Console.WriteLine($"{_employees[i]};");
+            }
+        }
+
     }
 
 }
