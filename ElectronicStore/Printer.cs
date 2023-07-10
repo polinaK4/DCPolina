@@ -8,8 +8,8 @@
         public Printer(string? modelName, decimal price, int PaperWidth, int PaperHeight) : base(modelName, price)
         {
             this.PaperWidth = PaperWidth;
-            this.PaperHeight = PaperHeight;        }
-
+            this.PaperHeight = PaperHeight;        
+        }
         public override string Description 
         {
             get
@@ -17,6 +17,7 @@
                 return $"Price: {price}, model:{modelName}";
             }
         }
+
         public void Print()
         {
             Console.WriteLine("Printing...");

@@ -3,12 +3,10 @@
     public class MobilePhone : Device, ICamera
     {
         public double NumberOfPixelsInCamera { get; set; }
-
         public MobilePhone(double NumberOfPixelsInCamera, string? modelName, decimal price) : base(modelName, price)
         {
             this.NumberOfPixelsInCamera = NumberOfPixelsInCamera;
         }
-
         public override string Description
         {
             get

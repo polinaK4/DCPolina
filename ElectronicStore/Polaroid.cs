@@ -18,18 +18,22 @@
                 return $"Price: {price}, model:{modelName}, number of pixels in camera: {NumberOfPixelsInCamera}";
             }
         }
+
         public void TakePhoto()
         {
             Console.WriteLine("Press black button at the top and photo is ready");
         }
+
         public void Print()
         {
             Console.WriteLine("Printing...");
         }
+
         public override void TurnOn()
         {
             Console.WriteLine("Press right side button");
         }
+
         public override void TunrnOff()
         {
             Console.WriteLine("Press Turn Off button");

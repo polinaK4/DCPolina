@@ -5,11 +5,13 @@
         public string? modelName;  
         public decimal price; 
         public abstract string Description { get; }
+
         public abstract void TurnOn(); 
+
         public abstract void TunrnOff();
+
         public Device(string modelName, decimal price)
         {
-            this.modelName = modelName;
             this.modelName = modelName;
             this.price = price;            
         }

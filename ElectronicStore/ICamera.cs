@@ -3,6 +3,7 @@
     public interface ICamera
     {
         public double NumberOfPixelsInCamera { get; set; }
+
         public void TakePhoto();
     }
 }
