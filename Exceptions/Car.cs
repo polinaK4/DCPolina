@@ -3,7 +3,7 @@
     public class Car
     {
         private int _speed;
-        public string Type { get; set; } = "";
+        public string Type { get; set; }
         public int Speed
         {
             get => _speed;

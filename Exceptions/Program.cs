@@ -3,9 +3,9 @@ public class ProgramTask8
 {   
     static void Main(string[] args)
     {
+        Task8Exceptions.ShowMassiveElement(); //for task1
         try
-        {
-            Task8Exceptions.ShowMassiveElement(); //for task1
+        {            
             Car car = new Car { Type = "BMV", Speed = 220 }; //for task2
         }
         catch (SpeedException ex)
