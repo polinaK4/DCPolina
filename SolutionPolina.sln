@@ -20,9 +20,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions", "Exceptions\Ex
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractClasses", "AbstrInterfaces\AbstractClasses.csproj", "{0D9EBF73-FF72-4F12-8E01-4E8A5ED6BD69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfacesTask", "InterfacesTask\InterfacesTask.csproj", "{643F4E32-F4D1-4635-A0DA-2EF052174ABC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterfacesTask", "InterfacesTask\InterfacesTask.csproj", "{643F4E32-F4D1-4635-A0DA-2EF052174ABC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElectronicStore", "ElectronicStore\ElectronicStore.csproj", "{F4D72B78-6FEA-4A2A-8FF9-DB3B7A28DB0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElectronicStore", "ElectronicStore\ElectronicStore.csproj", "{F4D72B78-6FEA-4A2A-8FF9-DB3B7A28DB0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task9-Generics", "Task9-Generics\Task9-Generics.csproj", "{3EEBE96F-5F72-4B64-80E4-63B17F41116C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +64,10 @@ Global
 		{59638370-75F0-4273-AD4E-E8739058AAA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59638370-75F0-4273-AD4E-E8739058AAA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59638370-75F0-4273-AD4E-E8739058AAA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EEBE96F-5F72-4B64-80E4-63B17F41116C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EEBE96F-5F72-4B64-80E4-63B17F41116C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EEBE96F-5F72-4B64-80E4-63B17F41116C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EEBE96F-5F72-4B64-80E4-63B17F41116C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
