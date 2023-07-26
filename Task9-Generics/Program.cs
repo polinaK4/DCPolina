@@ -30,8 +30,8 @@ class Program
         women.Add(1, new Woman());
         women.Add(2, new Woman("Woman2", "A"));
 
-        Console.WriteLine(women);
-        Console.WriteLine(men);
+        // У меня появилась дурная идея(а может и не дурная) вывести все в LowerCase'е. Но почему-то именна по-прежнему выводятся с большой буквы
+        Console.WriteLine(women.ToString().ToLower());
 
     }
 }
