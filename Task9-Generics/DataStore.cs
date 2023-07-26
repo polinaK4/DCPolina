@@ -5,8 +5,9 @@
         public T[] array;
         public DataStore(int size)
         {
-            array = new T[size + 1];
+            array = new T[size];
         }
+
         public void Add(int index, T value)
         {
             array[index] = value;
@@ -35,9 +36,9 @@
             }            
         }
 
-        public string GetItem(int index)
+        public T GetItem(int index)
         {
-            return $"{array[index].firstName} {array[index].lastName}";
+            return array[index];
         }
 
         public int Length()
@@ -45,31 +46,23 @@
             return array.Length;
         }
 
-        public string ToString()
+        public override string ToString()
         {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] != null)
+                {
+                    Console.WriteLine($"{array[i].firstName} {array[i].lastName}");
+                }
+            }
             if (typeof(T).Name is "Woman")
             {
-                for (int i = 0; i < array.Length; i++)
-                {
-                    if (array[i] != null)
-                    {
-                        Console.WriteLine($"{array[i].firstName} {array[i].lastName}");
-                    }
-                }
-                    return $"There’re only women";
+                return $"There’re only women";
             }
             else
             {
-                for (int i = 0; i < array.Length; i++)
-                {
-                    if (array[i] != null)
-                    {
-                        Console.WriteLine($"{array[i].firstName} {array[i].lastName}");
-                    }
-                }
                 return $"There’re only men";
             }
         }
-
     }
 }
