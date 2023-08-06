@@ -52,7 +52,7 @@
             {
                 if (array[i] != null)
                 {
-                    Console.WriteLine($"{array[i].firstName} {array[i].lastName}");
+                    Console.WriteLine($"{array[i].firstName.ToLower()} {array[i].lastName.ToLower()}");
                 }
             }
             if (typeof(T).Name is "Woman")
