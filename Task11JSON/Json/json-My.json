@@ -1,0 +1,20 @@
+{
+  "color": "Green",
+  "number": 9999,
+  "active": true,
+  "datetimeOfCheck": "2023-10-01T11:00:00",
+  "buses": [
+    {
+      "name": "Mersedes",
+      "age": 5
+    },
+    {
+      "name": "Neoplan",
+      "age": 11
+    },
+    {
+      "name": "Neoplan",
+      "age": 9
+    }
+  ]
+}
