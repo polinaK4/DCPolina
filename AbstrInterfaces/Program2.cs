@@ -1,20 +1,29 @@
 ﻿using AbstractClasses;
-class Program2 
+class Program2
 {
     static void Main(string[] args)
     {
-        Ship ship = new Ship("Tales Of The Sea", 70, 5, "Cruise");
-        Car car = new Car("Tesla", 200, 50, "Electro");
+        XXXX.Sum(1);
+    }
+    public class XXXX
+    {
+        public static void Sum(params int[] numbers)
+        {
+            int result = 0;
+            foreach (var n in numbers)
+            {
+                result += n;
+            }
+            Console.WriteLine(result);
+        }
 
-        ship.PrintTheName();
-        ship.Move();      
-        ship.FastOrNot();
-
-        car.PrintTheName();    
-        car.Move();
-        car.Move();
-        car.Move();
-        car.CheckDistance();
-
+        public static void Sum(int x)
+        {
+            Console.WriteLine("hello");
+        }
     }
 }
+
+
+
+
