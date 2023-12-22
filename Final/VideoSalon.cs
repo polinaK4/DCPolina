@@ -54,7 +54,10 @@ namespace Final
                 int rentPrice = Convert.ToInt32(Console.ReadLine());
                 videotapes.Add(new Videotape(ID, name, rentPrice, true));
                 string output = JsonConvert.SerializeObject(videotapes, Formatting.Indented);
-                File.WriteAllText(@"C:\Users\Polina\Source\Repos\DCPolina\Final\Json\videotapes.json", output);
+                string pathVideotapesJson = ".\\Json\\videotapes.json";
+                File.WriteAllText(pathVideotapesJson, output);        
+                               
+               
             }
             if (action == 2)
             {
@@ -66,7 +69,8 @@ namespace Final
                     {
                         videotapes.Remove(videotapes[i]);
                         string output = JsonConvert.SerializeObject(videotapes, Formatting.Indented);
-                        File.WriteAllText(@"C:\Users\Polina\Source\Repos\DCPolina\Final\Json\videotapes.json", output);
+                        string pathVideotapesJson = ".\\Json\\videotapes.json";
+                        File.WriteAllText(pathVideotapesJson, output);                        
                     }
                 }
                 for (int f = 0; f < tenants.Count; f++)
@@ -77,7 +81,8 @@ namespace Final
                         {
                             tenants[f].rentedVideotapes.Remove(tenants[f].rentedVideotapes[j]);
                             string outputT = JsonConvert.SerializeObject(tenants, Formatting.Indented);
-                            File.WriteAllText(@"C:\Users\Polina\Source\Repos\DCPolina\Final\Json\tenants.json", outputT);
+                            string pathTenantsJson = ".\\Json\\tenants.json";
+                            File.WriteAllText(pathTenantsJson, outputT);                            
                         }
                     }
                 }
@@ -98,7 +103,8 @@ namespace Final
                 var lastName = Console.ReadLine();
                 tenants.Add(new Tenant(ID, firstName, lastName, new List<Videotape>() { }));
                 string outputT = JsonConvert.SerializeObject(tenants, Formatting.Indented);
-                File.WriteAllText(@"C:\Users\Polina\Source\Repos\DCPolina\Final\Json\tenants.json", outputT);
+                string pathTenantsJson = ".\\Json\\tenants.json";
+                File.WriteAllText(pathTenantsJson, outputT);
             }
             if (action == 2)
             {
@@ -110,7 +116,8 @@ namespace Final
                     {
                         tenants.Remove(tenants[i]);
                         string outputT = JsonConvert.SerializeObject(tenants, Formatting.Indented);
-                        File.WriteAllText(@"C:\Users\Polina\Source\Repos\DCPolina\Final\Json\tenants.json", outputT);
+                        string pathTenantsJson = ".\\Json\\tenants.json";
+                        File.WriteAllText(pathTenantsJson, outputT);
                     }
                 }
              }
@@ -133,7 +140,8 @@ namespace Final
                         {                           
                             videotapes[i].isAvailable = false;
                             string output = JsonConvert.SerializeObject(videotapes, Formatting.Indented);
-                            File.WriteAllText(@"C:\Users\Polina\Source\Repos\DCPolina\Final\Json\videotapes.json", output);
+                            string pathVideotapesJson = ".\\Json\\videotapes.json";
+                            File.WriteAllText(pathVideotapesJson, output);                            
                             
                             for (int f = 0; f < tenants.Count; f++)
                             {
@@ -142,7 +150,8 @@ namespace Final
                                     matches++;                                                                   
                                     tenants[f].rentedVideotapes.Add(videotapes[i]);
                                     string outputT = JsonConvert.SerializeObject(tenants, Formatting.Indented);
-                                    File.WriteAllText(@"C:\Users\Polina\Source\Repos\DCPolina\Final\Json\tenants.json", outputT);
+                                    string pathTenantsJson = ".\\Json\\videotapes.json";
+                                    File.WriteAllText(pathTenantsJson, outputT);
                                     Console.WriteLine($"Videotape {videotapes[i].ID} | {videotapes[i].name} has been rented succesfully by {tenants[f].firstName} {tenants[f].lastName}");
                                 }
                             }
@@ -184,7 +193,8 @@ namespace Final
                             {
                                 videotapes[j].isAvailable = true;
                                 string output = JsonConvert.SerializeObject(videotapes, Formatting.Indented);
-                                File.WriteAllText(@"C:\Users\Polina\Source\Repos\DCPolina\Final\Json\videotapes.json", output);
+                                string pathVideotapesJson = ".\\Json\\videotapes.json";
+                                File.WriteAllText(pathVideotapesJson, output);
                             }
                         }
                         for (int f = 0; f < tenants[i].rentedVideotapes.Count; f++)
@@ -195,7 +205,8 @@ namespace Final
                                 Console.WriteLine($"Returning {tenants[i].rentedVideotapes[f].ID} | {tenants[i].rentedVideotapes[f].name} by {tenants[i].firstName} {tenants[i].lastName}");
                                 tenants[i].rentedVideotapes.Remove(tenants[i].rentedVideotapes[f]);
                                 string outputT = JsonConvert.SerializeObject(tenants, Formatting.Indented);
-                                File.WriteAllText(@"C:\Users\Polina\Source\Repos\DCPolina\Final\Json\tenants.json", outputT);
+                                string pathTenantsJson = ".\\Json\\tenants.json";
+                                File.WriteAllText(pathTenantsJson, outputT);
                             }
                         }
                     }
