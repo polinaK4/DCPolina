@@ -8,7 +8,7 @@ namespace Final
         public string name;
         public List<Videotape> videotapes;
         public List<Tenant> tenants;
-
+        
         public VideoSalon(string name, List<Videotape> videotapes, List<Tenant> tenants)
         {
             this.name = name;
@@ -53,11 +53,7 @@ namespace Final
                 Console.Write("Enter rent price: ");
                 int rentPrice = Convert.ToInt32(Console.ReadLine());
                 videotapes.Add(new Videotape(ID, name, rentPrice, true));
-                string output = JsonConvert.SerializeObject(videotapes, Formatting.Indented);
-                string pathVideotapesJson = ".\\Json\\videotapes.json";
-                File.WriteAllText(pathVideotapesJson, output);        
-                               
-               
+                Helper.SaveVideotapes(videotapes);
             }
             if (action == 2)
             {
@@ -68,9 +64,7 @@ namespace Final
                     if (videotapes[i].ID == removeId)
                     {
                         videotapes.Remove(videotapes[i]);
-                        string output = JsonConvert.SerializeObject(videotapes, Formatting.Indented);
-                        string pathVideotapesJson = ".\\Json\\videotapes.json";
-                        File.WriteAllText(pathVideotapesJson, output);                        
+                        Helper.SaveVideotapes(videotapes);
                     }
                 }
                 for (int f = 0; f < tenants.Count; f++)
@@ -80,9 +74,7 @@ namespace Final
                         if (tenants[f].rentedVideotapes[j].ID == removeId)
                         {
                             tenants[f].rentedVideotapes.Remove(tenants[f].rentedVideotapes[j]);
-                            string outputT = JsonConvert.SerializeObject(tenants, Formatting.Indented);
-                            string pathTenantsJson = ".\\Json\\tenants.json";
-                            File.WriteAllText(pathTenantsJson, outputT);                            
+                            Helper.SaveTenants(tenants);
                         }
                     }
                 }
@@ -102,9 +94,7 @@ namespace Final
                 Console.Write("Enter last name: ");
                 var lastName = Console.ReadLine();
                 tenants.Add(new Tenant(ID, firstName, lastName, new List<Videotape>() { }));
-                string outputT = JsonConvert.SerializeObject(tenants, Formatting.Indented);
-                string pathTenantsJson = ".\\Json\\tenants.json";
-                File.WriteAllText(pathTenantsJson, outputT);
+                Helper.SaveTenants(tenants);
             }
             if (action == 2)
             {
@@ -115,9 +105,7 @@ namespace Final
                     if (tenants[i].ID == removeId)
                     {
                         tenants.Remove(tenants[i]);
-                        string outputT = JsonConvert.SerializeObject(tenants, Formatting.Indented);
-                        string pathTenantsJson = ".\\Json\\tenants.json";
-                        File.WriteAllText(pathTenantsJson, outputT);
+                        Helper.SaveTenants(tenants);
                     }
                 }
              }
@@ -139,19 +127,15 @@ namespace Final
                         if (videotapes[i].isAvailable == true)
                         {                           
                             videotapes[i].isAvailable = false;
-                            string output = JsonConvert.SerializeObject(videotapes, Formatting.Indented);
-                            string pathVideotapesJson = ".\\Json\\videotapes.json";
-                            File.WriteAllText(pathVideotapesJson, output);                            
-                            
+                            Helper.SaveVideotapes(videotapes);
+
                             for (int f = 0; f < tenants.Count; f++)
                             {
                                 if (tenants[f].ID == idT)
                                 {
                                     matches++;                                                                   
                                     tenants[f].rentedVideotapes.Add(videotapes[i]);
-                                    string outputT = JsonConvert.SerializeObject(tenants, Formatting.Indented);
-                                    string pathTenantsJson = ".\\Json\\videotapes.json";
-                                    File.WriteAllText(pathTenantsJson, outputT);
+                                    Helper.SaveTenants(tenants);
                                     Console.WriteLine($"Videotape {videotapes[i].ID} | {videotapes[i].name} has been rented succesfully by {tenants[f].firstName} {tenants[f].lastName}");
                                 }
                             }
@@ -192,9 +176,7 @@ namespace Final
                             if (videotapes[j].ID == idV)
                             {
                                 videotapes[j].isAvailable = true;
-                                string output = JsonConvert.SerializeObject(videotapes, Formatting.Indented);
-                                string pathVideotapesJson = ".\\Json\\videotapes.json";
-                                File.WriteAllText(pathVideotapesJson, output);
+                                Helper.SaveVideotapes(videotapes);
                             }
                         }
                         for (int f = 0; f < tenants[i].rentedVideotapes.Count; f++)
@@ -204,9 +186,7 @@ namespace Final
                                 matches++;
                                 Console.WriteLine($"Returning {tenants[i].rentedVideotapes[f].ID} | {tenants[i].rentedVideotapes[f].name} by {tenants[i].firstName} {tenants[i].lastName}");
                                 tenants[i].rentedVideotapes.Remove(tenants[i].rentedVideotapes[f]);
-                                string outputT = JsonConvert.SerializeObject(tenants, Formatting.Indented);
-                                string pathTenantsJson = ".\\Json\\tenants.json";
-                                File.WriteAllText(pathTenantsJson, outputT);
+                                Helper.SaveTenants(tenants);
                             }
                         }
                     }
@@ -267,9 +247,6 @@ namespace Final
                 {
                     Console.WriteLine("Command is not recognized. Try again");
                 }
-                Console.WriteLine("Do another? (y - for Yes, anything else for Exit)");
-                if (Console.ReadLine() != "y")
-                    break;
             }
         }
     }
