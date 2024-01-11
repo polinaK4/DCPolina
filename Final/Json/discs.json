@@ -1,0 +1,23 @@
+﻿[
+	{
+		"ID": 4001,
+		"name": "Top hits of 2002",
+		"rentPrice": 5.0,
+		"isAvailable": true,
+		"fileSystem": "hfs"
+	},
+	{
+		"ID": 4002,
+		"name": "Best New Year movies",
+		"rentPrice": 7.0,
+		"isAvailable": true,
+		"fileSystem": "NTFS"
+	},
+	{
+		"ID": 4003,
+		"name": "Best songs for road trip",
+		"rentPrice": 6.0,
+		"isAvailable": true,
+		"fileSystem": "fat"
+	}
+]

@@ -1,0 +1,23 @@
+﻿[
+    {
+        "ID": 3001,
+        "name": "Britney Spears - Baby One More Time",
+        "rentPrice": 5.0,
+        "isAvailable": true,
+        "audioCodek": "wma"
+    },
+    {
+        "ID": 3002,
+        "name": "Metallica - Load",
+        "rentPrice": 7.0,
+        "isAvailable": true,
+        "audioCodek": "mp3"
+    },
+    {
+        "ID": 3003,
+        "name": "The Beatles - Yellow Submarine",
+        "rentPrice": 6.0,
+        "isAvailable": true,
+        "audioCodek": "wma"
+    }
+]

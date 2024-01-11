@@ -8,15 +8,21 @@
         "ID": 1004,
         "name": "Forrest Gump",
         "rentPrice": 20.0,
-        "isAvailable": false
+        "isAvailable": false,
+        "videoCodek": "avi",
+        "audiocodek": "wma"
       },
       {
         "ID": 1005,
         "name": "Interstellar",
         "rentPrice": 21.0,
-        "isAvailable": false
+        "isAvailable": false,
+        "videoCodek": "mp4",
+        "audiocodek": "mp3"
       }
-    ]
+    ],
+    "rentedAudiotapes": [],
+    "rentedDiscs": []
   },
   {
     "ID": 2002,
@@ -27,20 +33,20 @@
         "ID": 1006,
         "name": "Pulp Fiction",
         "rentPrice": 18.0,
-        "isAvailable": false
-      },
-      {
-        "ID": 1007,
-        "name": "Fight Club",
-        "rentPrice": 15.0,
-        "isAvailable": false
+        "isAvailable": false,
+        "videoCodek": "avi",
+        "audiocodek": "wma"
       }
-    ]
+    ],
+    "rentedAudiotapes": [],
+    "rentedDiscs": []
   },
   {
     "ID": 2003,
     "firstName": "John",
     "lastName": "Trump",
-    "rentedVideotapes": []
+    "rentedVideotapes": [],
+    "rentedAudiotapes": [],
+    "rentedDiscs": []
   }
 ]

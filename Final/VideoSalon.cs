@@ -8,12 +8,16 @@ namespace Final
         public string name;
         public List<Videotape> videotapes;
         public List<Tenant> tenants;
+        public List<Audiotape> audiotapes;
+        public List<Disc> discs;
         
-        public VideoSalon(string name, List<Videotape> videotapes, List<Tenant> tenants)
+        public VideoSalon(string name, List<Videotape> videotapes, List<Tenant> tenants, List<Audiotape> audiotapes, List<Disc> discs)
         {
             this.name = name;
             this.videotapes = videotapes;
             this.tenants = tenants;
+            this.audiotapes = audiotapes;
+            this.discs = discs;
         }
 
         public void ListOfAvailableVideotapes()
@@ -23,7 +27,7 @@ namespace Final
             {
                 if (videotapes[i].isAvailable == true)
                 {
-                    Console.WriteLine($"{videotapes[i].ID} | {videotapes[i].name} | Price: {videotapes[i].rentPrice};");
+                    Console.WriteLine($"{videotapes[i].ID} | {videotapes[i].name} | Price: {videotapes[i].rentPrice} | VideoCodek: {videotapes[i].videoCodek} | AudioCodek: {videotapes[i].audioCodek};");
                 }
             }
         }
@@ -52,7 +56,11 @@ namespace Final
                 var name = Console.ReadLine();
                 Console.Write("Enter rent price: ");
                 int rentPrice = Convert.ToInt32(Console.ReadLine());
-                videotapes.Add(new Videotape(ID, name, rentPrice, true));
+                Console.Write("Enter VideoCodek type: ");
+                var videoCodek = Console.ReadLine();
+                Console.Write("Enter AudioCodek type: ");
+                var audioCodek = Console.ReadLine();
+                videotapes.Add(new Videotape(ID, name, rentPrice, true, videoCodek, audioCodek));
                 Helper.SaveVideotapes(videotapes);
             }
             if (action == 2)
@@ -93,7 +101,7 @@ namespace Final
                 var firstName = Console.ReadLine();
                 Console.Write("Enter last name: ");
                 var lastName = Console.ReadLine();
-                tenants.Add(new Tenant(ID, firstName, lastName, new List<Videotape>() { }));
+                tenants.Add(new Tenant(ID, firstName, lastName, new List<Videotape>() { }, new List<Audiotape>() { }, new List<Disc>() { }));
                 Helper.SaveTenants(tenants);
             }
             if (action == 2)
@@ -111,45 +119,107 @@ namespace Final
              }
         }
 
-        public void RentAVideotape()
+        public void Rent()
         {
             try
             {
-                Console.WriteLine($"Write ID of the videotape to rent:");
-                int idV = Convert.ToInt32(Console.ReadLine());                
                 Console.WriteLine($"Write ID of the tenant:");
-                int idT = Convert.ToInt32(Console.ReadLine());
+                int idTenant = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine($"What will be rented? \n 1 - Videotape \n 2 - Audiotape \n 3 - Disc");
+                int action = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine($"Write ID of item to rent:");
+                int idRent = Convert.ToInt32(Console.ReadLine());
                 int matches = 0;
-                for (int i = 0; i < videotapes.Count; i++)
-                {
-                    if (videotapes[i].ID == idV)
+                if (action == 1)
+                {                                   
+                    for (int i = 0; i < videotapes.Count; i++)
                     {
-                        if (videotapes[i].isAvailable == true)
-                        {                           
-                            videotapes[i].isAvailable = false;
-                            Helper.SaveVideotapes(videotapes);
-
-                            for (int f = 0; f < tenants.Count; f++)
+                        if (videotapes[i].ID == idRent)
+                        {
+                            if (videotapes[i].isAvailable == true)
                             {
-                                if (tenants[f].ID == idT)
+                                videotapes[i].isAvailable = false;
+                                Helper.SaveVideotapes(videotapes);
+                                for (int f = 0; f < tenants.Count; f++)
                                 {
-                                    matches++;                                                                   
-                                    tenants[f].rentedVideotapes.Add(videotapes[i]);
-                                    Helper.SaveTenants(tenants);
-                                    Console.WriteLine($"Videotape {videotapes[i].ID} | {videotapes[i].name} has been rented succesfully by {tenants[f].firstName} {tenants[f].lastName}");
+                                    if (tenants[f].ID == idTenant)
+                                    {
+                                        matches++;
+                                        tenants[f].rentedVideotapes.Add(videotapes[i]);
+                                        Helper.SaveTenants(tenants);
+                                        Console.WriteLine($"Videotape {videotapes[i].ID} | {videotapes[i].name} has been rented succesfully by {tenants[f].firstName} {tenants[f].lastName}");
+                                    }
                                 }
                             }
+                            else if (videotapes[i].isAvailable == false)
+                            {
+                                matches++;
+                                Console.WriteLine($"Videotape {videotapes[i].ID} | {videotapes[i].name} is not available");
+                            }
                         }
-                        else if (videotapes[i].isAvailable == false)
-                        {
-                            matches++;
-                            Console.WriteLine($"Videotape {videotapes[i].ID} | {videotapes[i].name} is not available");
-                        }                        
                     }                    
+                }
+                if (action == 2)
+                {
+                    for (int i = 0; i < audiotapes.Count; i++)
+                    {
+                        if (audiotapes[i].ID == idRent)
+                        {
+                            if (audiotapes[i].isAvailable == true)
+                            {
+                                audiotapes[i].isAvailable = false;
+                                Helper.SaveAudiotapes(audiotapes);
+                                for (int f = 0; f < tenants.Count; f++)
+                                {
+                                    if (tenants[f].ID == idTenant)
+                                    {
+                                        matches++;
+                                        tenants[f].rentedAudiotapes.Add(audiotapes[i]);
+                                        Helper.SaveTenants(tenants);
+                                        Console.WriteLine($"Audiotape {audiotapes[i].ID} | {audiotapes[i].name} has been rented succesfully by {tenants[f].firstName} {tenants[f].lastName}");
+                                    }
+                                }
+                            }
+                            else if (audiotapes[i].isAvailable == false)
+                            {
+                                matches++;
+                                Console.WriteLine($"Audiotape {audiotapes[i].ID} | {audiotapes[i].name} is not available");
+                            }
+                        }
+                    }
+                }
+                if (action == 3)
+                {
+                    for (int i = 0; i < discs.Count; i++)
+                    {
+                        if (discs[i].ID == idRent)
+                        {
+                            if (discs[i].isAvailable == true)
+                            {
+                                discs[i].isAvailable = false;
+                                Helper.SaveDiscs(discs);
+                                for (int f = 0; f < tenants.Count; f++)
+                                {
+                                    if (tenants[f].ID == idTenant)
+                                    {
+                                        matches++;
+                                        tenants[f].rentedDiscs.Add(discs[i]);
+                                        Helper.SaveTenants(tenants);
+                                        Console.WriteLine($"Disc {discs[i].ID} | {discs[i].name} has been rented succesfully by {tenants[f].firstName} {tenants[f].lastName}");
+                                    }
+                                }
+                            }
+                            else if (discs[i].isAvailable == false)
+                            {
+                                matches++;
+                                Console.WriteLine($"Disc {discs[i].ID} | {discs[i].name} is not available");
+                            }
+                        }
+                    }
                 }
                 if (matches == 0)
                 {
-                    Console.WriteLine("No videotape or tenant with such ID");
+                    Console.WriteLine("No item or tenant with such ID");
                 }
             }
             catch
@@ -158,42 +228,101 @@ namespace Final
             }
         }
 
-        public void ReturnAVideotape()
+        public void Return()
         {
             try
             {
-                Console.WriteLine($"Write ID of the videotape to return:");
-                int idV = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine($"Write ID of the tenant:");
-                int idT = Convert.ToInt32(Console.ReadLine());
+                int idTenant = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine($"What will be returned? \n 1 - Videotape \n 2 - Audiotape \n 3 - Disc");
+                int action = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine($"Write ID of item to rent:");
+                int idReturn = Convert.ToInt32(Console.ReadLine());
                 int matches = 0;
-                for (int i = 0; i < tenants.Count; i++)
+                if (action == 1)
                 {
-                    if (tenants[i].ID == idT)
+                    for (int i = 0; i < tenants.Count; i++)
                     {
-                        for (int j = 0; j < videotapes.Count; j++)
+                        if (tenants[i].ID == idTenant)
                         {
-                            if (videotapes[j].ID == idV)
+                            for (int j = 0; j < videotapes.Count; j++)
                             {
-                                videotapes[j].isAvailable = true;
-                                Helper.SaveVideotapes(videotapes);
+                                if (videotapes[j].ID == idReturn)
+                                {
+                                    videotapes[j].isAvailable = true;
+                                    Helper.SaveVideotapes(videotapes);
+                                }
+                            }
+                            for (int f = 0; f < tenants[i].rentedVideotapes.Count; f++)
+                            {
+                                if (tenants[i].rentedVideotapes[f].ID == idReturn)
+                                {
+                                    matches++;
+                                    Console.WriteLine($"Returning {tenants[i].rentedVideotapes[f].ID} | {tenants[i].rentedVideotapes[f].name} by {tenants[i].firstName} {tenants[i].lastName}");
+                                    tenants[i].rentedVideotapes.Remove(tenants[i].rentedVideotapes[f]);
+                                    Helper.SaveTenants(tenants);
+                                }
                             }
                         }
-                        for (int f = 0; f < tenants[i].rentedVideotapes.Count; f++)
+                    }
+                }
+                if (action == 2)
+                {
+                    for (int i = 0; i < tenants.Count; i++)
+                    {
+                        if (tenants[i].ID == idTenant)
                         {
-                            if (tenants[i].rentedVideotapes[f].ID == idV)
+                            for (int j = 0; j < audiotapes.Count; j++)
                             {
-                                matches++;
-                                Console.WriteLine($"Returning {tenants[i].rentedVideotapes[f].ID} | {tenants[i].rentedVideotapes[f].name} by {tenants[i].firstName} {tenants[i].lastName}");
-                                tenants[i].rentedVideotapes.Remove(tenants[i].rentedVideotapes[f]);
-                                Helper.SaveTenants(tenants);
+                                if (audiotapes[j].ID == idReturn)
+                                {
+                                    audiotapes[j].isAvailable = true;
+                                    Helper.SaveAudiotapes(audiotapes);
+                                }
+                            }
+                            for (int f = 0; f < tenants[i].rentedAudiotapes.Count; f++)
+                            {
+                                if (tenants[i].rentedAudiotapes[f].ID == idReturn)
+                                {
+                                    matches++;
+                                    Console.WriteLine($"Returning {tenants[i].rentedAudiotapes[f].ID} | {tenants[i].rentedAudiotapes[f].name} by {tenants[i].firstName} {tenants[i].lastName}");
+                                    tenants[i].rentedAudiotapes.Remove(tenants[i].rentedAudiotapes[f]);
+                                    Helper.SaveTenants(tenants);
+                                }
+                            }
+                        }
+                    }
+                }
+                if (action == 3)
+                {
+                    for (int i = 0; i < tenants.Count; i++)
+                    {
+                        if (tenants[i].ID == idTenant)
+                        {
+                            for (int j = 0; j < discs.Count; j++)
+                            {
+                                if (discs[j].ID == idReturn)
+                                {
+                                    discs[j].isAvailable = true;
+                                    Helper.SaveDiscs(discs);
+                                }
+                            }
+                            for (int f = 0; f < tenants[i].rentedDiscs.Count; f++)
+                            {
+                                if (tenants[i].rentedDiscs[f].ID == idReturn)
+                                {
+                                    matches++;
+                                    Console.WriteLine($"Returning {tenants[i].rentedDiscs[f].ID} | {tenants[i].rentedDiscs[f].name} by {tenants[i].firstName} {tenants[i].lastName}");
+                                    tenants[i].rentedDiscs.Remove(tenants[i].rentedDiscs[f]);
+                                    Helper.SaveTenants(tenants);
+                                }
                             }
                         }
                     }
                 }
                 if (matches == 0)
                 {
-                    Console.WriteLine("No videotape or tenant with such ID");
+                    Console.WriteLine("No item or tenant with such ID");
                 }
             }
             catch
@@ -206,7 +335,7 @@ namespace Final
         {
             while (true)
             {
-                Console.WriteLine($"Hello! What would you like to do? \n 1 - Look at a list of available videotapes \n 2 - Look at a list of rented videotapes \n 3 - Rent a videotape \n 4 - Return videotape \n 5 - Add/Remove videotape \n 6 - Add/Remove tenant \n 0 - Exit");
+                Console.WriteLine($"Hello! What would you like to do? \n 1 - Look at a list of available videotapes \n 2 - Look at a list of rented videotapes \n 3 - Rent \n 4 - Return \n 5 - Add/Remove videotape \n 6 - Add/Remove tenant \n 0 - Exit");
                 try
                 {
                     int action = Convert.ToInt32(Console.ReadLine());
@@ -220,11 +349,11 @@ namespace Final
                     }
                     else if (action == 3)
                     {
-                        RentAVideotape();
+                        Rent();
                     }
                     else if (action == 4)
                     {
-                        ReturnAVideotape();
+                        Return();
                     }
                     else if (action == 5)
                     {
