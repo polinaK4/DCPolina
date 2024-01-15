@@ -1,13 +1,9 @@
 ﻿namespace Final
 {
-    public class Tenant
+    public class Tenant : Customer
     {
-        public int ID;
         public string firstName;
         public string lastName;
-        public List<Videotape> rentedVideotapes;
-        public List<Audiotape> rentedAudiotapes;
-        public List<Disc> rentedDiscs;
 
         public Tenant(int ID, string firstName, string lastName, List<Videotape> rentedVideotapes, List<Audiotape> rentedAudiotapes, List<Disc> rentedDiscs)
         {

@@ -15,6 +15,8 @@ class Program
         var audiotapes = JsonConvert.DeserializeObject<List<Audiotape>>(audiotapesFromJson);
         var discsFromJson = File.ReadAllText(Helper.pathDiscsJson);
         var discs = JsonConvert.DeserializeObject<List<Disc>>(discsFromJson);
+        var companiesFromJson = File.ReadAllText(Helper.pathCompaniesJson);
+        var companies = JsonConvert.DeserializeObject<List<Company>>(companiesFromJson);
 
         VideoSalon Tesla = new VideoSalon
             (
@@ -22,7 +24,8 @@ class Program
                 videotapes,
                 tenants,
                 audiotapes,
-                discs
+                discs,
+                companies
             );
         Tesla.LaunchVideoSalon();
     }

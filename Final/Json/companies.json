@@ -1,0 +1,32 @@
+﻿[
+	{
+		"ID": 5001,
+		"name": "Tesla",
+		"rentedVideotapes": [],
+		"rentedAudiotapes": [],
+		"rentedDiscs": []
+	},
+	{
+		"ID": 5002,
+		"name": "Vention",
+		"rentedVideotapes": [
+			{
+				"ID": 1008,
+				"name": "Harry Potter and Prizoner of Azkaban",
+				"rentPrice": 16.0,
+				"isAvailable": false,
+				"videoCodek": "mp4",
+				"audioCodek": "mp3"
+			}
+		],
+		"rentedAudiotapes": [],
+		"rentedDiscs": []
+	},
+	{
+		"ID": 5003,
+		"name": "Epam",
+		"rentedVideotapes": [],
+		"rentedAudiotapes": [],
+		"rentedDiscs": []
+	}
+]

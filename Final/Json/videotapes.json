@@ -59,7 +59,7 @@
     "ID": 1008,
     "name": "Harry Potter and Prizoner of Azkaban",
     "rentPrice": 16.0,
-    "isAvailable": true,
+    "isAvailable": false,
     "videoCodek": "mp4",
     "audioCodek": "mp3"
   }

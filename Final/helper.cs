@@ -9,6 +9,7 @@ namespace Final
         public static string pathTenantsJson = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Json", "tenants.json");
         public static string pathAudiotapesJson = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Json", "audiotapes.json");
         public static string pathDiscsJson = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Json", "discs.json");
+        public static string pathCompaniesJson = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Json", "companies.json");
 
         public static void SaveVideotapes(List<Videotape> videotapes)
         {
@@ -32,6 +33,12 @@ namespace Final
         {
             string output = JsonConvert.SerializeObject(discs, Formatting.Indented);
             File.WriteAllText(pathDiscsJson, output);
+        }
+
+        public static void SaveCompanies(List<Company> companies)
+        {
+            string output = JsonConvert.SerializeObject(companies, Formatting.Indented);
+            File.WriteAllText(pathCompaniesJson, output);
         }
     }
 }
