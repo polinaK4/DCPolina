@@ -4,13 +4,15 @@
     {
         public string name;
 
-        public Company(int ID, string name, List<Videotape> rentedVideotapes, List<Audiotape> rentedAudiotapes, List<Disc> rentedDiscs)
+        public Company(int ID, string name)
         {
-            this.ID = ID;
+            this.ID = ID;  
             this.name = name;
-            this.rentedVideotapes = rentedVideotapes;
-            this.rentedAudiotapes = rentedAudiotapes;
-            this.rentedDiscs = rentedDiscs;
+        }
+
+        public override string ToString()
+        {
+            return $"{name} | ID: {ID};";
         }
     }
 }

@@ -9,8 +9,10 @@ namespace Final
     public abstract class Customer
     {
         public int ID;
-        public List<Videotape> rentedVideotapes;
-        public List<Audiotape> rentedAudiotapes;
-        public List<Disc> rentedDiscs;
+
+        //public Customer(int id)
+        //{
+        //    this.Id = id;
+        //}
     }
 }

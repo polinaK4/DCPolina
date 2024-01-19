@@ -3,17 +3,19 @@
     "ID": 1001,
     "name": "Eternal sunshine of spotless mind",
     "rentPrice": 20.0,
-    "isAvailable": true,
+    "isAvailable": false,
     "videoCodek": "mp4",
-    "audioCodek": "wma"
+    "audioCodek": "wma",
+    "tenantID": 2001
   },
   {
     "ID": 1002,
     "name": "The Shawshank Redemption",
     "rentPrice": 19.0,
-    "isAvailable": true,
+    "isAvailable": false,
     "videoCodek": "mpeg",
-    "audioCodek": "mp3"
+    "audioCodek": "mp3",
+    "tenantID": 2002
   },
   {
     "ID": 1003,
@@ -21,46 +23,25 @@
     "rentPrice": 20.0,
     "isAvailable": true,
     "videoCodek": "mp4",
-    "audioCodek": "mp3"
+    "audioCodek": "mp3",
+    "tenantID": null
   },
   {
     "ID": 1004,
     "name": "Forrest Gump",
     "rentPrice": 20.0,
-    "isAvailable": false,
+    "isAvailable": true,
     "videoCodek": "avi",
-    "audioCodek": "wma"
+    "audioCodek": "wma",
+    "tenantID": null
   },
   {
     "ID": 1005,
     "name": "Interstellar",
     "rentPrice": 21.0,
-    "isAvailable": false,
+    "isAvailable": true,
     "videoCodek": "mp4",
-    "audioCodek": "mp3"
-  },
-  {
-    "ID": 1006,
-    "name": "Pulp Fiction",
-    "rentPrice": 18.0,
-    "isAvailable": false,
-    "videoCodek": "avi",
-    "audioCodek": "wma"
-  },
-  {
-    "ID": 1007,
-    "name": "Fight Club",
-    "rentPrice": 15.0,
-    "isAvailable": false,
-    "videoCodek": "mp4",
-    "audioCodek": "mp3"
-  },
-  {
-    "ID": 1008,
-    "name": "Harry Potter and Prizoner of Azkaban",
-    "rentPrice": 16.0,
-    "isAvailable": false,
-    "videoCodek": "mp4",
-    "audioCodek": "mp3"
+    "audioCodek": "mp3",
+    "tenantID": null
   }
 ]

@@ -7,5 +7,8 @@ namespace Final
         public string name;
         public double rentPrice;
         public bool isAvailable;
+        public int? tenantID;
     }
+
+
 }

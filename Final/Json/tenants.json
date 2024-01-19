@@ -2,51 +2,16 @@
   {
     "ID": 2001,
     "firstName": "Tom",
-    "lastName": "Jonson",
-    "rentedVideotapes": [
-      {
-        "ID": 1004,
-        "name": "Forrest Gump",
-        "rentPrice": 20.0,
-        "isAvailable": false,
-        "videoCodek": "avi",
-        "audiocodek": "wma"
-      },
-      {
-        "ID": 1005,
-        "name": "Interstellar",
-        "rentPrice": 21.0,
-        "isAvailable": false,
-        "videoCodek": "mp4",
-        "audiocodek": "mp3"
-      }
-    ],
-    "rentedAudiotapes": [],
-    "rentedDiscs": []
+    "lastName": "Jonson"
   },
   {
     "ID": 2002,
     "firstName": "Hanna",
-    "lastName": "Smith",
-    "rentedVideotapes": [
-      {
-        "ID": 1006,
-        "name": "Pulp Fiction",
-        "rentPrice": 18.0,
-        "isAvailable": false,
-        "videoCodek": "avi",
-        "audiocodek": "wma"
-      }
-    ],
-    "rentedAudiotapes": [],
-    "rentedDiscs": []
+    "lastName": "Smith"
   },
   {
-    "ID": 2003,
+    "ID": 2004,
     "firstName": "John",
-    "lastName": "Trump",
-    "rentedVideotapes": [],
-    "rentedAudiotapes": [],
-    "rentedDiscs": []
+    "lastName": "Trump"
   }
 ]
