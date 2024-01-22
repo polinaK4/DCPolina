@@ -34,7 +34,7 @@ namespace Final
             int idRent = Convert.ToInt32(Console.ReadLine());
             int matches = 0;            
             items.Where(item => item.ID == idRent && item.isAvailable == false).ToList().ForEach(item => { Console.WriteLine($"Item '{item.ID} | {item.name}' is not available"); matches++; }) ;
-            items.Where(item => item.ID == idRent && item.isAvailable == true).ToList().ForEach( item => {item.isAvailable = false; item.tenantId = idTenant; Console.WriteLine($"Item {item.name} ID:{item.ID} has been rented succesfully"); matches++; });
+            items.Where(item => item.ID == idRent && item.isAvailable == true).ToList().ForEach( item => {item.isAvailable = false; item.tenantId = idTenant; Helper.SaveItems(items); Console.WriteLine($"Item {item.name} ID:{item.ID} has been rented succesfully"); matches++; });
             if (matches == 0)
             {
                 Console.WriteLine("No item or tenant with such ID");
@@ -46,7 +46,7 @@ namespace Final
             Console.WriteLine($"Write ID of item to return:");
             int idReturn = Convert.ToInt32(Console.ReadLine());
             int matches = 0;
-            items.Where(item => item.ID == idReturn).ToList().ForEach(item => { item.isAvailable = true; item.tenantId = null; matches++; });
+            items.Where(item => item.ID == idReturn).ToList().ForEach(item => { item.isAvailable = true; item.tenantId = null; Helper.SaveItems(items); matches++; });
             if (matches == 0)
             {
                 Console.WriteLine("No item found");
