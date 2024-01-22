@@ -11,34 +11,32 @@ namespace Final
         public static string pathDiscsJson = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Json", "discs.json");
         public static string pathCompaniesJson = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Json", "companies.json");
 
-        public static void SaveVideotapes(List<Videotape> videotapes)
+        public static List<Videotape> LoadVideotapes()
         {
-            string output = JsonConvert.SerializeObject(videotapes, Formatting.Indented);
-            File.WriteAllText(pathVideotapesJson, output);
+            var videotapesFromJson = File.ReadAllText(pathVideotapesJson);
+            return JsonConvert.DeserializeObject<List<Videotape>>(videotapesFromJson);
+        }
+        public static List<Audiotape> LoadAudiotapes()
+        {
+            var audiotapesFromJson = File.ReadAllText(pathAudiotapesJson);
+            return JsonConvert.DeserializeObject<List<Audiotape>>(audiotapesFromJson);
+        }
+        public static List<Disc> LoadDiscs()
+        {
+            var discsFromJson = File.ReadAllText(pathDiscsJson);
+            return JsonConvert.DeserializeObject<List<Disc>>(discsFromJson);
         }
 
-        public static void SaveTenants(List<Tenant> tenants)
+        public static List<Tenant> LoadTenants()
         {
-            string output = JsonConvert.SerializeObject(tenants, Formatting.Indented);
-            File.WriteAllText(pathTenantsJson, output);
+            var tenantsFromJson = File.ReadAllText(Helper.pathTenantsJson);
+            return JsonConvert.DeserializeObject<List<Tenant>>(tenantsFromJson);
         }
 
-        public static void SaveAudiotapes(List<Audiotape> audiotapes)
+        public static List<Company> LoadCompanies()
         {
-            string output = JsonConvert.SerializeObject(audiotapes, Formatting.Indented);
-            File.WriteAllText(pathAudiotapesJson, output);
-        }
-
-        public static void SaveDiscs(List<Disc> discs)
-        {
-            string output = JsonConvert.SerializeObject(discs, Formatting.Indented);
-            File.WriteAllText(pathDiscsJson, output);
-        }
-
-        public static void SaveCompanies(List<Company> companies)
-        {
-            string output = JsonConvert.SerializeObject(companies, Formatting.Indented);
-            File.WriteAllText(pathCompaniesJson, output);
+            var companiesFromJson = File.ReadAllText(pathCompaniesJson);
+            return JsonConvert.DeserializeObject<List<Company>>(companiesFromJson);
         }
     }
 }

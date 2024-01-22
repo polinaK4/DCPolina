@@ -1,14 +1,22 @@
-﻿
-namespace Final
+﻿namespace Final
 {
     public abstract class VideosalonItem
     {
         public int ID;
-        public string name;
+        public string type;
+        public string name;        
         public double rentPrice;
         public bool isAvailable;
-        public int? tenantID;
+        public int? tenantId;
+
+        public VideosalonItem(int id, string type, string name, double rentPrice, bool isAvailable, int? tenantId)
+        {
+            this.ID = id;
+            this.type = type;
+            this.name = name;
+            this.rentPrice = rentPrice;
+            this.isAvailable = isAvailable;
+            this.tenantId = tenantId;
+        }
     }
-
-
 }

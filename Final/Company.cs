@@ -4,15 +4,14 @@
     {
         public string name;
 
-        public Company(int ID, string name)
-        {
-            this.ID = ID;  
+        public Company(int ID, string type, string name) : base(ID, type)
+        { 
             this.name = name;
         }
 
         public override string ToString()
         {
-            return $"{name} | ID: {ID};";
+            return $"ID: {ID} | {name} | {type};";
         }
     }
 }

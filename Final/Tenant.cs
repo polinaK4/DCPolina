@@ -7,16 +7,15 @@ namespace Final
         public string firstName;
         public string lastName;
 
-        public Tenant(int ID, string firstName, string lastName)
+        public Tenant(int ID, string type, string firstName, string lastName) : base(ID, type)
         {
-            this.ID = ID;
             this.firstName = firstName;
             this.lastName = lastName;
         }
 
         public override string ToString()
         {
-            return $"{firstName} {lastName} | ID: {ID};";
+            return $"ID: {ID} | {firstName} {lastName} | {type};";
         }
     }
 }

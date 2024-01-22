@@ -5,20 +5,15 @@
         public string videoCodek;
         public string audioCodek;
 
-        public Videotape(int ID, string name, double rentPrice, bool isAvailable, string videoCodek, string audioCodek, int? tenantId)
+        public Videotape(int id, string type, string name, double rentPrice, bool isAvailable, string videoCodek, string audioCodek, int? tenantId) : base(id, type, name, rentPrice, isAvailable, tenantId)
         {
-            this.ID = ID;
-            this.name = name;
-            this.rentPrice = rentPrice;
-            this.isAvailable = isAvailable;
             this.videoCodek = videoCodek;
             this.audioCodek = audioCodek;
-            this.tenantID= tenantId;
         }
 
         public override string ToString()
         {
-            return $"{name} | Price: {rentPrice} | VideoCodek: {videoCodek} | AudioCodek: {audioCodek} | ID: {ID} | TenantID : {tenantID};";
+            return $"ID: {ID} | {type} | {name} | Price: {rentPrice} | VideoCodek: {videoCodek} | AudioCodek: {audioCodek};";
         }
     }
 }

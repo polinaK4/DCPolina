@@ -1,16 +1,19 @@
 [
   {
     "ID": 2001,
+    "type": "Individual Tenant",
     "firstName": "Tom",
     "lastName": "Jonson"
   },
   {
     "ID": 2002,
+    "type": "Individual Tenant",
     "firstName": "Hanna",
     "lastName": "Smith"
   },
   {
     "ID": 2004,
+    "type": "Individual Tenant",
     "firstName": "John",
     "lastName": "Trump"
   }

@@ -9,10 +9,12 @@ namespace Final
     public abstract class Customer
     {
         public int ID;
+        public string type; 
 
-        //public Customer(int id)
-        //{
-        //    this.Id = id;
-        //}
+        public Customer(int id, string type)
+        {
+            this.ID = id;
+            this.type = type;
+        }
     }
 }

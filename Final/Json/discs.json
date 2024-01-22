@@ -1,26 +1,20 @@
 ﻿[
 	{
 		"ID": 4001,
+		"type": "Disc",
 		"name": "Top hits of 2002",
 		"rentPrice": 5.0,
-		"isAvailable": false,
+		"isAvailable": true,
 		"fileSystem": "hfs",
-		"tenantID": 2001
+		"tenantID": null
 	},
 	{
 		"ID": 4002,
+		"type": "Disc",
 		"name": "Best New Year movies",
 		"rentPrice": 7.0,
 		"isAvailable": true,
 		"fileSystem": "NTFS",
-		"tenantID": null
-	},
-	{
-		"ID": 4003,
-		"name": "Best songs for road trip",
-		"rentPrice": 6.0,
-		"isAvailable": true,
-		"fileSystem": "fat",
 		"tenantID": null
 	}
 ]

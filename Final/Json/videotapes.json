@@ -1,6 +1,7 @@
 [
   {
     "ID": 1001,
+    "type": "Videotape",
     "name": "Eternal sunshine of spotless mind",
     "rentPrice": 20.0,
     "isAvailable": false,
@@ -10,33 +11,17 @@
   },
   {
     "ID": 1002,
+    "type": "Videotape",
     "name": "The Shawshank Redemption",
     "rentPrice": 19.0,
-    "isAvailable": false,
+    "isAvailable": true,
     "videoCodek": "mpeg",
     "audioCodek": "mp3",
-    "tenantID": 2002
+    "tenantID": null
   },
   {
     "ID": 1003,
-    "name": "The Green Mile",
-    "rentPrice": 20.0,
-    "isAvailable": true,
-    "videoCodek": "mp4",
-    "audioCodek": "mp3",
-    "tenantID": null
-  },
-  {
-    "ID": 1004,
-    "name": "Forrest Gump",
-    "rentPrice": 20.0,
-    "isAvailable": true,
-    "videoCodek": "avi",
-    "audioCodek": "wma",
-    "tenantID": null
-  },
-  {
-    "ID": 1005,
+    "type": "Videotape",
     "name": "Interstellar",
     "rentPrice": 21.0,
     "isAvailable": true,

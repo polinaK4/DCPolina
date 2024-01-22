@@ -1,14 +1,17 @@
 ﻿[
 	{
 		"ID": 5001,
+		"type": "Company",
 		"name": "Tesla"
 	},
 	{
 		"ID": 5002,
+		"type": "Company",
 		"name": "Vention"
 	},
 	{
-		"ID": 5004,
+		"ID": 5003,
+		"type": "Company",
 		"name": "Epam"
 	}
 ]

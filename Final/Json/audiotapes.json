@@ -1,26 +1,20 @@
 ﻿[
   {
     "ID": 3001,
+    "type": "Audiotape",
     "name": "Britney Spears - Baby One More Time",
     "rentPrice": 5.0,
-    "isAvailable": false,
+    "isAvailable": true,
     "audioCodek": "wma",
-    "tenantID": 2001
+    "tenantID": null
   },
   {
     "ID": 3002,
+    "type": "Audiotape",
     "name": "Metallica - Load",
     "rentPrice": 7.0,
     "isAvailable": true,
     "audioCodek": "mp3",
-    "tenantID": null
-  },
-  {
-    "ID": 3003,
-    "name": "The Beatles - Yellow Submarine",
-    "rentPrice": 6.0,
-    "isAvailable": true,
-    "audioCodek": "wma",
     "tenantID": null
   }
 ]
