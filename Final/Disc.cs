@@ -4,7 +4,7 @@
     {
         public string fileSystem;
 
-        public Disc(int id, string type, string name, double rentPrice, bool isAvailable, string fileSystem, int? tenantId) : base(id, type, name, rentPrice, isAvailable, tenantId)
+        public Disc(int id, string type, string name, double rentPrice, string fileSystem) : base(id, type, name, rentPrice)
         {
             this.fileSystem = fileSystem;
         }

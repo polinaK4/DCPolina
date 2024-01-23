@@ -4,10 +4,10 @@
     "type": "Videotape",
     "name": "Eternal sunshine of spotless mind",
     "rentPrice": 20.0,
-    "isAvailable": false,
+    "isAvailable": true,
     "videoCodek": "mp4",
     "audioCodek": "wma",
-    "tenantID": 2001
+    "tenantID": null
   },
   {
     "ID": 1002,

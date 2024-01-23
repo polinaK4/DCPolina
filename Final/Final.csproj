@@ -11,6 +11,7 @@
     <None Remove="Json\audiotapes.json" />
     <None Remove="Json\companies.json" />
     <None Remove="Json\discs.json" />
+    <None Remove="Json\rent.json" />
     <None Remove="Json\tenants.json" />
     <None Remove="Json\videotapes.json" />
   </ItemGroup>
@@ -23,6 +24,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Json\discs.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Json\rent.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Json\tenants.json">

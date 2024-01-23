@@ -12,6 +12,7 @@ class Program
         var discs = Helper.LoadDiscs();
         var tenants = Helper.LoadTenants();
         var companies = Helper.LoadCompanies();
+        var rents = Helper.LoadRents();
 
         var items = new List<VideosalonItem>();
         items.AddRange(videotapes);
@@ -26,7 +27,8 @@ class Program
             (
                 "Tesla",
                 items,
-                customers
+                customers,
+                rents
             );
         Tesla.LaunchVideoSalon();
     }

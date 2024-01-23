@@ -4,7 +4,7 @@
     {
         public string audioCodek;
 
-        public Audiotape(int id, string type, string name, double rentPrice, bool isAvailable, string audioCodek, int? tenantId) : base(id, type, name, rentPrice, isAvailable, tenantId)
+        public Audiotape(int id, string type, string name, double rentPrice, string audioCodek) : base(id, type, name, rentPrice)
         {
             this.audioCodek = audioCodek;
         }
