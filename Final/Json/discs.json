@@ -1,0 +1,20 @@
+﻿[
+	{
+		"ID": 4001,
+		"type": "Disc",
+		"name": "Top hits of 2002",
+		"rentPrice": 5.0,
+		"isAvailable": true,
+		"fileSystem": "hfs",
+		"tenantID": null
+	},
+	{
+		"ID": 4002,
+		"type": "Disc",
+		"name": "Best New Year movies",
+		"rentPrice": 7.0,
+		"isAvailable": true,
+		"fileSystem": "NTFS",
+		"tenantID": null
+	}
+]
